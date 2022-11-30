@@ -25,10 +25,9 @@ async function run() {
             releases = releases.filter(x => x.draft != true);
         }
         if (releases.length) {
-            //core.setOutput('release', releases[0].tag_name);
-            //core.setOutput('id', String(releases[0].id));
-            core.exportVariable("release", releases[0].tag_name)
-            core.exportVariable("id", String(releases[0].id))
+            core.setSecret('release', releases[0].tag_name);
+            core.setSecret('id', String(releases[0].id));
+            
         } else {
             core.setFailed("No valid releases");
         }
