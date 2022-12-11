@@ -14,6 +14,7 @@ Name | Description | Example
 --- | --- | ---
 owner | The Github user or organization that owns the repository |  pozetroninc
 repo | The repository name | github-action-get-latest-release
+ref | branch/tag/release | github-action-get-latest-release
 
 **or**
 Name | Description | Example

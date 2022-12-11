@@ -4,6 +4,7 @@ const { Octokit } = require("@octokit/rest");
 const repository = core.getInput('repository');
 var owner = core.getInput('owner');
 var repo = core.getInput('repo');
+var ref = core.getInput('ref')
 var excludes = core.getInput('excludes').trim().split(",");
 
 const octokit = new Octokit()
@@ -16,6 +17,7 @@ async function run() {
         var releases  = await octokit.repos.listReleases({
             owner: owner,
             repo: repo,
+            ref: ref,
             });
         releases = releases.data;
         if (excludes.includes('prerelease')) {
